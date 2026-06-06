@@ -1,0 +1,7 @@
+MasterDocBuilder é uma ferramenta voltada para automação da criação e manutenção de documentação técnica de projetos de software. O objetivo do projeto é reduzir o esforço manual na elaboração de arquivos README, gerando documentação padronizada, consistente e alinhada às boas práticas de engenharia de software.
+
+A ferramenta utiliza templates configuráveis e informações fornecidas pelo desenvolvedor para produzir documentação estruturada, incluindo descrição do projeto, tecnologias utilizadas, instruções de execução, observabilidade, deploy e demais informações relevantes.
+
+Em sua evolução, o MasterDocBuilder pretende incorporar análise automática da estrutura do código-fonte, interpretação de configurações do projeto e integração com modelos de Inteligência Artificial para sugerir ou gerar descrições funcionais, regras de negócio e documentação contextualizada, minimizando a necessidade de intervenção manual.
+
+O projeto foi concebido para ser utilizado tanto como ferramenta standalone quanto integrado ao ecossistema de build através de plugins Maven, pipelines CI/CD ou automações corporativas, promovendo maior qualidade, padronização e governança da documentação em equipes de desenvolvimento.

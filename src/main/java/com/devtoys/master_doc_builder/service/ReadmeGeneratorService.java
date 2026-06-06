@@ -1,11 +1,16 @@
 package com.devtoys.master_doc_builder.service;
 
+import com.devtoys.master_doc_builder.model.in.ProjectDocumentationRequisitionModel;
 import com.devtoys.master_doc_builder.model.in.ReadmeDocumentationRequisitionModel;
 import com.devtoys.master_doc_builder.model.out.ReadmeDocumentationResultModel;
+import com.devtoys.master_doc_builder.render.ReadmeDocumentationRender;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class ReadmeGeneratorService {
+  private final ReadmeDocumentationRender readmeDocumentationRender;
 
   public ReadmeDocumentationResultModel generateReadmeResultDocumentation(ReadmeDocumentationRequisitionModel requisition) {
     ReadmeDocumentationResultModel result = new ReadmeDocumentationResultModel();
@@ -15,6 +20,7 @@ public class ReadmeGeneratorService {
     result.setStackTechnologies(requisition.getStackTechnologies());
     result.setRunInstructions(requisition.getRunInstructions());
     result.setMoreInformations(requisition.getMoreInformations());
+    readmeDocumentationRender.renderDocumentation(result);
     return result;
   }
 
