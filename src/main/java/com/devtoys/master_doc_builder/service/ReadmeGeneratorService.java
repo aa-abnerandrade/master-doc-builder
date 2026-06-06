@@ -13,34 +13,19 @@ import org.springframework.stereotype.Service;
 public class ReadmeGeneratorService {
   private final ReadmeDocumentationRender readmeDocumentationRender;
 
-  public ReadmeDocumentationResultModel generateReadmeResultDocumentation(ProjectDocumentationRequisitionModel requisition) {
-    ReadmeDocumentationRequisitionModel readmeReq = toReadmeRequisition(requisition);
+  public ReadmeDocumentationResultModel generateReadmeResultDocumentation(ReadmeDocumentationRequisitionModel requisition) {
 
     ReadmeDocumentationResultModel result = new ReadmeDocumentationResultModel();
-    result.setProjectName(readmeReq.getProjectName());
-    result.setSimpleDescription(readmeReq.getSimpleDescription());
-    result.setDetailedDescription(readmeReq.getDetailedDescription());
-    result.setStackTechnologies(readmeReq.getStackTechnologies());
-    result.setRunInstructions(readmeReq.getRunInstructions());
-    result.setMoreInformations(readmeReq.getMoreInformations());
+    result.setProjectName(requisition.getProjectName());
+    result.setSimpleDescription(requisition.getSimpleDescription());
+    result.setDetailedDescription(requisition.getDetailedDescription());
+    result.setStackTechnologies(requisition.getStackTechnologies());
+    result.setRunInstructions(requisition.getRunInstructions());
+    result.setMoreInformations(requisition.getMoreInformations());
 
     readmeDocumentationRender.renderDocumentation(result);
     return result;
   }
 
-  private ReadmeDocumentationRequisitionModel toReadmeRequisition(ProjectDocumentationRequisitionModel requisition) {
-    if (requisition == null) {
-      return new ReadmeDocumentationRequisitionModel(null, null, null, null, null, null);
-    }
-    if (requisition instanceof ReadmeDocumentationRequisitionModel) {
-      return (ReadmeDocumentationRequisitionModel) requisition;
-    }
-    ObjectMapper mapper = new ObjectMapper();
-    try {
-      return mapper.convertValue(requisition, ReadmeDocumentationRequisitionModel.class);
-    } catch (IllegalArgumentException ex) {
-      return new ReadmeDocumentationRequisitionModel(null, null, null, null, null, null);
-    }
-  }
 
 }

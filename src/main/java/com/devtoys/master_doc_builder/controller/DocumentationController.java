@@ -17,7 +17,7 @@ public class DocumentationController {
   private ReadmeGeneratorService readmeGeneratorService;
 
   @PostMapping("/generate-doc")
-  public ProjectDocumentationResultModel generateDocumentation(@RequestParam("type") String typeDoc, @RequestBody ProjectDocumentationRequisitionModel requisition) {
+  public ProjectDocumentationResultModel generateDocumentation(@RequestParam("type") String typeDoc, @RequestBody ReadmeDocumentationRequisitionModel requisition) {
     if (typeDoc.equals("readme")) {
       return readmeGeneratorService.generateReadmeResultDocumentation(requisition);
     }
