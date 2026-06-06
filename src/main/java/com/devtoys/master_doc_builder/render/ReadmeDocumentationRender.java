@@ -14,7 +14,7 @@ public class ReadmeDocumentationRender {
 
   public void renderDocumentation(ReadmeDocumentationResultModel result) {
     String content = buildMarkdown(result);
-    Path output = Path.of(System.getProperty("src/main/resources/artifacts"), "README.md");
+    Path output = Path.of(System.getProperty("user.dir"), "src", "main", "resources", "artifacts", "README.md");
     try {
       Files.writeString(output, content, StandardCharsets.UTF_8,
               StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
